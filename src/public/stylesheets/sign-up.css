@@ -1,6 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
   padding: 0.5rem;
 }
@@ -30,14 +31,22 @@ input {
   display: grid;
   place-items: center;
 }
+.avatar-container {
+  text-align: center;
+  display: flex;
+  width: 50%;
+  height: 100%;
+  overflow-x: scroll;
+  padding-bottom: 0.25rem;
+}
 .button-wrapper {
   display: grid;
   place-items: center;
+  width: 100%;
 }
 .sign-up-button,
 .log-in-button {
-  width: 30%;
-  padding: 1rem 0;
+  padding: 1rem;
   background-color: var(--brown);
   color: #fff;
   cursor: pointer;
@@ -52,5 +61,6 @@ input {
   .sign-up-button,
   .log-in-button {
     width: 20%;
+    padding: 1rem 0;
   }
 }

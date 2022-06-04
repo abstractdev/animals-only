@@ -30,3 +30,21 @@ body {
   background-repeat: none;
   height: 100vh;
 }
+
+/* HIDE RADIO */
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+/* IMAGE STYLES */
+[type="radio"] + lottie-player {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type="radio"]:checked + lottie-player {
+  border: 3px solid var(--brown);
+}

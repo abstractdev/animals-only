@@ -23,6 +23,28 @@
         </div>
       </div>
     </div>
+    <h3>Choose an animal*</h3>
+    <div class="avatar-container">
+      <% animals.forEach(e => { %>
+      <label for="<%= e.name %>">
+        <input
+          type="radio"
+          name="avatar"
+          class="avatar"
+          id="<%= e.name %>"
+          value="<%= e.name %>"
+        />
+        <lottie-player
+          class="lottie-<%= e.name %>"
+          src="<%= e.avatar %>"
+          speed="1"
+          style="width: 6rem; height: 10rem"
+          loop
+          hover
+        ></lottie-player>
+      </label>
+      <% }) %>
+    </div>
     <div class="button-wrapper">
       <button type="submit" class="sign-up-button">Sign Up</button>
     </div>
