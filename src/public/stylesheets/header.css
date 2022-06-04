@@ -1,0 +1,83 @@
+header {
+  display: flex;
+  align-items: center;
+  font-family: "tribeca", sans-serif;
+  justify-content: space-between;
+  cursor: default;
+}
+a {
+  text-decoration: none;
+}
+.logo-container {
+  display: flex;
+  place-items: center;
+  text-align: center;
+  background-color: var(--green);
+  padding-right: 1rem;
+  border-top: 3px dashed var(--brown);
+  border-bottom: 3px dashed var(--brown);
+  border-right: 3px dashed var(--brown);
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  color: var(--brown);
+}
+lottie-player {
+  background-color: var(--green);
+}
+.no-humans {
+  display: none;
+}
+@media screen and (min-width: 630px) {
+  .no-humans {
+    position: relative;
+    display: inline-block;
+    color: #000;
+  }
+  .no-humans::before,
+  .no-humans::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+  .no-humans::before {
+    border-bottom: 3px solid red;
+    -webkit-transform: skewY(-10deg);
+    transform: skewY(-10deg);
+  }
+  .no-humans::after {
+    border-bottom: 3px solid red;
+    -webkit-transform: skewY(10deg);
+    transform: skewY(10deg);
+  }
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  font-family: "poppinsB", sans-serif;
+  border-radius: 50%;
+  gap: 0.5rem;
+  padding-right: 0.1rem;
+}
+.log-in-link,
+.sign-up-link {
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--brown);
+  text-decoration: none;
+  color: #fff;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 480px) {
+  .logo-container {
+    font-size: 1.5rem;
+  }
+  nav {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+    flex-direction: row;
+  }
+}

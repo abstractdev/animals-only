@@ -1,0 +1,56 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+h2 {
+  text-align: center;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--brown);
+}
+.name-container,
+.username-container {
+  display: grid;
+  place-items: center;
+}
+.button-wrapper {
+  display: grid;
+  place-items: center;
+}
+.sign-up-button,
+.log-in-button {
+  width: 30%;
+  padding: 1rem 0;
+  background-color: var(--brown);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+}
+
+@media screen and (min-width: 480px) {
+  .input-container {
+    flex-direction: row;
+  }
+  .sign-up-button,
+  .log-in-button {
+    width: 20%;
+  }
+}
