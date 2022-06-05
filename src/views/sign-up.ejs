@@ -1,52 +1,72 @@
-<body>
-  <form class="form" action="" method="get" class="sign-up-form">
-    <h2>SIGN UP YOU FILTHY ANIMAL</h2>
-    <div class="input-container">
-      <div class="name-container">
-        <div class="input-wrapper">
-          <label for="first">First Name (optional)</label>
-          <input type="text" name="first" id="first" />
-        </div>
-        <div class="input-wrapper">
-          <label for="last">Last Name (optional)</label>
-          <input type="text" name="last" id="last" />
-        </div>
+<form class="form" action="" method="POST" class="sign-up-form">
+  <h2>SIGN UP YOU FILTHY ANIMAL</h2>
+  <div class="input-container">
+    <div class="name-container">
+      <div class="input-wrapper">
+        <label for="first">First Name (optional)</label>
+        <input type="text" name="first" id="first" placeholder="First Name" <% if (post) { %>
+          value="<%= (typeof user === undefined) ? "" : user.first %>"
+        <% } %>>
       </div>
-      <div class="username-container">
-        <div class="input-wrapper">
-          <label for="username">Username*</label>
-          <input type="text" name="username" id="username" />
-        </div>
-        <div class="input-wrapper">
-          <label for="password">Password*</label>
-          <input type="password" name="password" id="password" />
-        </div>
+      <div class="input-wrapper">
+        <label for="last">Last Name (optional)</label>
+        <input type="text" name="last" id="last" placeholder="Last Name" <% if (post) { %>
+          value="<%= (typeof user === undefined) ? "" : user.last %>"
+        <% } %>>
+      </div>
+      <div class="input-wrapper">
+        <label for="email">E-Mail (optional)</label>
+        <input type="email" name="email" id="email" placeholder="E-Mail" <% if (post) { %>
+          value="<%= (typeof user === undefined) ? "" : user.email %>"
+        <% } %>>
       </div>
     </div>
-    <h3>Choose an animal*</h3>
-    <div class="avatar-container">
-      <% animals.forEach(e => { %>
-      <label for="<%= e.name %>">
-        <input
-          type="radio"
-          name="avatar"
-          class="avatar"
-          id="<%= e.name %>"
-          value="<%= e.name %>"
-        />
-        <lottie-player
-          class="lottie-<%= e.name %>"
-          src="<%= e.avatar %>"
-          speed="1"
-          style="width: 6rem; height: 10rem"
-          loop
-          hover
-        ></lottie-player>
-      </label>
-      <% }) %>
+    <div class="username-container">
+      <div class="input-wrapper">
+        <label for="username">Username*</label>
+        <input type="text" name="username" id="username" placeholder="Username" <% if (post) { %>
+          value="<%= (typeof user === undefined) ? "" : user.username %>"
+        <% } %>>
+      </div>
+      <div class="input-wrapper">
+        <label for="password">Password*</label>
+        <input type="password" name="password" id="password" placeholder="Password"/>
+      </div>
+      <div class="input-wrapper">
+        <label for="passwordConfirmation">Confirm Password*</label>
+        <input type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Confirm Password"/>
+      </div>
     </div>
-    <div class="button-wrapper">
-      <button type="submit" class="sign-up-button">Sign Up</button>
-    </div>
-  </form>
-</body>
+  </div>
+  <h3>Choose an animal*</h3>
+  <div class="animal-container">
+    <% animals.forEach(e => { %>
+    <label for="<%= e.name %>">
+      <input
+        type="radio"
+        name="animal"
+        class="avatar"
+        id="<%= e.name %>"
+        value="<%= e.name %>"
+      />
+      <lottie-player
+        class="lottie-radio"
+        src="<%= e.avatar %>"
+        speed="1"
+        loop
+        hover
+      ></lottie-player>
+    </label>
+    <% }) %>
+  </div>
+  <% if (post) { %>
+    <% if (errors) { %>
+      <% errors.forEach(function(error) { %>
+        <li class="errors"><%- error.msg %></li>
+      <% }); %>
+    <% } %>
+  <% } %>
+  <div class="button-wrapper">
+    <button type="submit" class="sign-up-button">Sign Up</button>
+  </div>
+</form>
