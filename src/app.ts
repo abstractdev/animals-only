@@ -16,11 +16,13 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(expressLayouts);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 
-app.listen("3001", () => {
-  console.log("running on port 3001");
+app.listen("3000", () => {
+  console.log("running on port 3000");
 });
