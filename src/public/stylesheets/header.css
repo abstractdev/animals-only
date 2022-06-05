@@ -21,9 +21,6 @@ a {
   border-bottom-right-radius: 50%;
   color: var(--brown);
 }
-lottie-player {
-  background-color: var(--green);
-}
 .no-humans {
   display: none;
 }

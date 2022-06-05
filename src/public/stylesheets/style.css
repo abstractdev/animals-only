@@ -48,3 +48,9 @@ body {
 [type="radio"]:checked + lottie-player {
   border: 3px solid var(--brown);
 }
+
+.errors {
+  font-weight: bolder;
+  color: red;
+  list-style: none;
+}

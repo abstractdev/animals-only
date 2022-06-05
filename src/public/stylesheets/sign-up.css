@@ -11,33 +11,26 @@ h2 {
 .input-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 0.5rem;
-  padding-bottom: 1rem;
 }
 .input-wrapper {
   display: flex;
   flex-direction: column;
   text-align: left;
+  padding: 0.25rem 0;
 }
 input {
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid var(--brown);
 }
-.name-container,
-.username-container {
-  display: grid;
-  place-items: center;
-}
-.avatar-container {
+.animal-container {
   text-align: center;
   display: flex;
-  width: 50%;
   height: 100%;
   overflow-x: scroll;
   padding-bottom: 0.25rem;
+  max-width: 50%;
 }
 .button-wrapper {
   display: grid;
@@ -52,6 +45,10 @@ input {
   cursor: pointer;
   border-radius: 10px;
   border: none;
+}
+.lottie-radio {
+  width: 3rem;
+  height: 5rem;
 }
 
 @media screen and (min-width: 480px) {
