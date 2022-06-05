@@ -1,20 +1,24 @@
 import mongoose from "mongoose";
 import { animals } from "../data/animals";
+const animalNames = animals.map((e) => e.name);
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  first: { type: String, required: false, maxLength: 50 },
-  last: { type: String, required: false, maxLength: 50 },
+  first: { type: String, required: false, maxLength: 20 },
+  last: { type: String, required: false, maxLength: 20 },
+  email: { type: String, required: false, maxLength: 20 },
   username: { type: String, required: true, minlength: 1, maxLength: 10 },
-  password: { type: String, required: true, minlength: 1 },
+  password: { type: String, required: true, minlength: 1, maxLength: 256 },
   animal: {
-    name: { type: String, required: true, minlength: 1, maxLength: 20 },
-    avatar: { type: String, required: true, minlength: 1, maxLength: 50 },
-    enum: animals(),
+    type: String,
+    required: false,
+    minlength: 1,
+    maxLength: 20,
+    enum: animalNames,
   },
   status: {
     type: String,
-    required: true,
+    required: false,
     enum: ["guest", "member", "admin"],
     default: "guest",
   },
@@ -22,5 +26,8 @@ const UserSchema = new Schema({
 
 // Virtual for user's URL
 UserSchema.virtual("url").get(function () {
-  return "/user/" + this._id;
+  return "/user/" + this.username;
 });
+
+//Export model
+module.exports = mongoose.model("User", UserSchema);
