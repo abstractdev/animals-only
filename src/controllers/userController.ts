@@ -64,7 +64,8 @@ exports.userCreatePost = [
       if (err) {
         console.log(err);
       }
-      // Create a brand object with escaped and trimmed data.
+      // Create a user object with escaped and trimmed data.
+      const avatar = animals.filter(e => e.name === req.body.animal).map(e => e.avatar)
       const user = new User({
         first: req.body.first,
         last: req.body.last,
@@ -72,6 +73,7 @@ exports.userCreatePost = [
         username: req.body.username,
         password: hashedPassword,
         animal: req.body.animal,
+        avatar: avatar[0]
       });
       if (!errors.isEmpty()) {
         console.log(errors);
@@ -86,6 +88,17 @@ exports.userCreatePost = [
         // Data from form is valid. Save user.
         user.save(function (err: any) {
           if (err) {
+            if (err.name === 'MongoServerError' && err.code === 11000) {
+              // Duplicate username
+              res.render("sign-up", {
+                user: user,
+                animals: animals,
+                errors: errors.array(),
+                err: err,
+                post: true,
+              });
+              return;
+            }
             return next(err);
           }
           //successful - redirect to new user record.

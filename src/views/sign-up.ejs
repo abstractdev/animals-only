@@ -65,6 +65,9 @@
         <li class="errors"><%- error.msg %></li>
       <% }); %>
     <% } %>
+    <% if (err) { %>
+      <li class="errors">Username already exists!</li>
+    <% } %>
   <% } %>
   <div class="button-wrapper">
     <button type="submit" class="sign-up-button">Sign Up</button>
