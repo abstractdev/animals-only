@@ -1,0 +1,22 @@
+<% if (currentUser) {%>
+  <h2>POST A MESSAGE YOU ANIMAL</h2>
+  <form class="form" action="" method="POST" class="log-in-form">
+    <div class="input-container">
+        <div class="message-container">
+          <div class="input-wrapper">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="Title">
+          </div>
+          <div class="input-wrapper">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+          </div>
+        </div>
+    </div>
+    <div class="button-wrapper">
+      <button type="submit" class="new-message-button">Send</button>
+    </div>
+  </form>
+<% } else { %>
+  <h2>404</h2>
+<%}%>
