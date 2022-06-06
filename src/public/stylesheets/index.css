@@ -1,31 +1,42 @@
 .test {
+  padding-top: 1rem;
   display: grid;
   place-items: center;
   width: 100%;
 }
 .bubble {
   position: relative;
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  width: 300px;
   background: var(--brown);
-  color: #ffffff;
-  font-size: 20px;
-  line-height: 120px;
-  box-shadow: 5px 5px 2px 0px #a3a3a3;
+  border-radius: 40px;
+  padding: 24px;
   text-align: center;
-  width: 250px;
-  height: 120px;
-  border-radius: 10px;
-  padding: 0px;
+  color: #fff;
 }
-.bubble:after {
+
+.bubble-bottom-left:before {
   content: "";
+  width: 0px;
+  height: 0px;
   position: absolute;
-  display: block;
-  width: 0;
-  z-index: 1;
-  border-style: solid;
-  border-width: 0 0 20px 20px;
-  border-color: transparent transparent var(--brown) transparent;
-  top: 50%;
-  left: -20px;
-  margin-top: -10px;
+  border-left: 24px solid var(--brown);
+  border-right: 12px solid transparent;
+  border-top: 12px solid var(--brown);
+  border-bottom: 20px solid transparent;
+  left: 32px;
+  bottom: -24px;
+}
+
+@media screen and (min-width: 480px) {
+  .bubble {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .bubble {
+    width: 720px;
+  }
 }

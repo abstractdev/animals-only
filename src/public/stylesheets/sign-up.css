@@ -35,16 +35,7 @@ input {
 .button-wrapper {
   display: grid;
   place-items: center;
-  width: 100%;
-}
-.sign-up-button,
-.log-in-button {
-  padding: 1rem;
-  background-color: var(--brown);
-  color: #fff;
-  cursor: pointer;
-  border-radius: 10px;
-  border: none;
+  width: 40%;
 }
 .lottie-radio {
   width: 3rem;
@@ -55,9 +46,9 @@ input {
   .input-container {
     flex-direction: row;
   }
-  .sign-up-button,
-  .log-in-button {
-    width: 20%;
-    padding: 1rem 0;
+}
+@media screen and (min-width: 1000px) {
+  .button-wrapper {
+    max-width: 10%;
   }
 }

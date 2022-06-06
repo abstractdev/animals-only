@@ -54,3 +54,18 @@ body {
   color: red;
   list-style: none;
 }
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 1rem 0;
+  background-color: var(--brown);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+}
