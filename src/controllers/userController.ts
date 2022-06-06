@@ -2,9 +2,10 @@ import { body, check, validationResult } from "express-validator";
 import { Request, Response, NextFunction } from "express";
 import { animals } from "../data/animals";
 import bcryptjs from "bcryptjs";
+import passport from "passport";
 const User = require("../models/user");
 
-// User GET
+// User sign-up GET
 exports.userCreateGet = function (
   req: Request,
   res: Response,
@@ -13,7 +14,7 @@ exports.userCreateGet = function (
   res.render("sign-up", { animals: animals, post: false });
 };
 
-//User POST
+//User sign-up POST
 exports.userCreatePost = [
   // Validate and sanitize fields.
   body("first")
@@ -94,3 +95,25 @@ exports.userCreatePost = [
     });
   },
 ];
+
+//User log-in GET
+exports.userLoginGet = function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  res.render("log-in", { post: false });
+};
+
+//User log-in POST
+exports.userLoginPost = function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  console.log("Username is: " + req.body.username);
+  passport.authenticate("local", {
+    successRedirect: "/user/" + req.body.username,
+    failureRedirect: "log-in",
+  })(req, res, next);
+};
