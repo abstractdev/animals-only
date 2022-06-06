@@ -1,21 +1,29 @@
 import mongoose from "mongoose";
 import { animals } from "../data/animals";
 const animalNames = animals.map((e) => e.name);
+const animalAvatars = animals.map((e) => e.avatar);
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   first: { type: String, required: false, maxLength: 20 },
   last: { type: String, required: false, maxLength: 20 },
   email: { type: String, required: false, maxLength: 20 },
-  username: { type: String, required: true, minlength: 1, maxLength: 10 },
+  username: {
+    type: String,
+    required: true,
+    minlength: 1,
+    maxLength: 20,
+    unique: true,
+  },
   password: { type: String, required: true, minlength: 1, maxLength: 256 },
   animal: {
     type: String,
-    required: false,
+    required: true,
     minlength: 1,
     maxLength: 20,
     enum: animalNames,
   },
+  avatar: { type: String, required: true, enum: animalAvatars },
   status: {
     type: String,
     required: false,

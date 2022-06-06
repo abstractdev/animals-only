@@ -36,7 +36,7 @@ exports.userCreatePost = [
     .trim()
     .isLength({ min: 1 })
     .withMessage("Username must not be empty")
-    .isLength({ max: 10 })
+    .isLength({ max: 20 })
     .withMessage("Username cannot exceed 10 characters")
     .escape(),
   body("password")
@@ -65,7 +65,9 @@ exports.userCreatePost = [
         console.log(err);
       }
       // Create a user object with escaped and trimmed data.
-      const avatar = animals.filter(e => e.name === req.body.animal).map(e => e.avatar)
+      const avatar = animals
+        .filter((e) => e.name === req.body.animal)
+        .map((e) => e.avatar);
       const user = new User({
         first: req.body.first,
         last: req.body.last,
@@ -73,7 +75,7 @@ exports.userCreatePost = [
         username: req.body.username,
         password: hashedPassword,
         animal: req.body.animal,
-        avatar: avatar[0]
+        avatar: avatar[0],
       });
       if (!errors.isEmpty()) {
         console.log(errors);
@@ -88,7 +90,7 @@ exports.userCreatePost = [
         // Data from form is valid. Save user.
         user.save(function (err: any) {
           if (err) {
-            if (err.name === 'MongoServerError' && err.code === 11000) {
+            if (err.name === "MongoServerError" && err.code === 11000) {
               // Duplicate username
               res.render("sign-up", {
                 user: user,
