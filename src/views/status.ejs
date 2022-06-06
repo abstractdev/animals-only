@@ -1,0 +1,19 @@
+<form class="form" action="" method="POST" class="sign-up-form">
+  <h2>Answer the following question to become an official member</h2>
+  <div class="input-container">
+      <div class="input-wrapper">
+        <label for="secret">Are you an animal?</label>
+        <input type="text" name="secret" id="secret">
+      </div>
+  </div>
+  <% if (post) { %>
+    <% if (errors) { %>
+      <% errors.forEach(function(error) { %>
+        <li class="errors"><%- error.msg %></li>
+      <% }); %>
+    <% } %>
+  <% } %>
+  <div class="button-wrapper">
+    <button type="submit" class="sign-up-button">Sign Up</button>
+  </div>
+</form>
