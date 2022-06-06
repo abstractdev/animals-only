@@ -1,3 +1,26 @@
-<div class="test">
-  <div class="bubble">TEST</div>
+<div class="home-container">
+  <div class="message-container">
+    <% allMessages.forEach(e => { %>
+      <div class="bubble bubble-bottom-left"><%= e.message %></div>
+      <% messageUsers.forEach(i => { %>
+        <% if (i.username === e.user) { %>
+          <div class="avatar-container">
+            <lottie-player
+            class="lottie-message-avatar"
+            src="<%= i.avatar %>"
+            speed="1"
+            loop
+            autoplay>
+            </lottie-player>
+          <% if (currentUser) { %>
+            <%= i.username %></br>
+            <%= e.createdAt.toLocaleDateString() %>
+            <% } else { %>
+              Anonymous</br>
+            <% } %>
+          </div>
+          <% } %>
+      <% }) %>
+    <% }) %>
+  </div>
 </div>
