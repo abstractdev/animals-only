@@ -1,7 +1,7 @@
-.test {
-  padding-top: 1rem;
+.home-container {
   display: grid;
   place-items: center;
+  padding-top: 1rem;
   width: 100%;
 }
 .bubble {
@@ -28,6 +28,15 @@
   border-bottom: 20px solid transparent;
   left: 32px;
   bottom: -24px;
+}
+.lottie-message-avatar {
+  width: 3rem;
+  height: 6rem;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (min-width: 480px) {
