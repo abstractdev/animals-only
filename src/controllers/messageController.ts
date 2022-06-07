@@ -41,7 +41,6 @@ exports.messageCreatePost = [
       user: req.params.username,
     });
     if (!errors.isEmpty()) {
-      console.log(errors);
       res.render("new-message", {
         message: message,
         errors: errors.array(),
