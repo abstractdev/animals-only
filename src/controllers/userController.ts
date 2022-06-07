@@ -19,17 +19,14 @@ exports.userCreatePost = [
   // Validate and sanitize fields.
   body("first")
     .trim()
-    .escape()
     .isLength({ max: 20 })
     .withMessage("First Name cannot exceed 20 characters"),
   body("last")
     .trim()
-    .escape()
     .isLength({ max: 20 })
     .withMessage("Last Name cannot exceed 20 characters"),
   body("email")
     .trim()
-    .escape()
     .isLength({ max: 20 })
     .withMessage("E-mail cannot exceed 20 characters"),
   body("username")
@@ -37,19 +34,14 @@ exports.userCreatePost = [
     .isLength({ min: 1 })
     .withMessage("Username must not be empty")
     .isLength({ max: 20 })
-    .withMessage("Username cannot exceed 10 characters")
-    .escape(),
+    .withMessage("Username cannot exceed 10 characters"),
   body("password")
     .trim()
     .isLength({ min: 1 })
     .withMessage("Password must not be empty")
     .isLength({ max: 20 })
-    .withMessage("Password cannot exceed 20 characters")
-    .escape(),
-  body("animal", "You must choose an animal")
-    .trim()
-    .isLength({ min: 1 })
-    .escape(),
+    .withMessage("Password cannot exceed 20 characters"),
+  body("animal", "You must choose an animal").trim().isLength({ min: 1 }),
   check("password").exists(),
   check("passwordConfirmation", "Passwords do not match")
     .exists()
@@ -64,7 +56,7 @@ exports.userCreatePost = [
       if (err) {
         console.log(err);
       }
-      // Create a user object with escaped and trimmed data.
+      // Create a user object with trimmed data.
       const avatar = animals
         .filter((e) => e.name === req.body.animal)
         .map((e) => e.avatar);

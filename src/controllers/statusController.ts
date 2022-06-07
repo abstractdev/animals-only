@@ -14,7 +14,12 @@ exports.statusCreateGet = function (
 //status POST
 exports.statusGuestPost = [
   // Validate and sanitize fields.
-  body("secret").trim().escape(),
+  body("secret")
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage("Answer cannot be empty")
+    .isLength({ max: 3 })
+    .withMessage("Answer must not exceed 3 characters"),
   check("secret")
     .isIn(["yes", "Yes", "YES"])
     .withMessage("Only animals are permitted as members."),
@@ -39,8 +44,8 @@ exports.statusGuestPost = [
         // `doc` is the document _before_ `update` was applied
         let doc = await User.findOneAndUpdate(filter, update);
 
-        //successful - redirect to new user record.
-        res.redirect(`/user/${req.params.username}/status/member`);
+        //successful - redirect home.
+        res.redirect("/");
       })();
     }
   },
@@ -48,7 +53,12 @@ exports.statusGuestPost = [
 
 exports.statusMemberPost = [
   // Validate and sanitize fields.
-  body("admin-password").trim().escape(),
+  body("admin-password")
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage("Password cannot be empty")
+    .isLength({ max: 11 })
+    .withMessage("Password must not exceed 11 characters"),
   check("admin-password").isIn(["abstractdev"]).withMessage("Incorrect"),
 
   // Process request after validation and sanitization.
