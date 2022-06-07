@@ -12,7 +12,7 @@
             loop
             autoplay>
             </lottie-player>
-          <% if (currentUser && currentUser.status === "member") { %>
+          <% if (currentUser && (currentUser.status === "member" || currentUser.status === "admin")) { %>
             <%= i.username %></br>
             <%= e.createdAt.toLocaleDateString() %>
             <% } else { %>
