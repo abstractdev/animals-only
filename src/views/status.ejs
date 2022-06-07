@@ -1,19 +1,47 @@
-<form class="form" action="" method="POST" class="sign-up-form">
-  <h2>Answer the following question to become an official member</h2>
-  <div class="input-container">
-      <div class="input-wrapper">
-        <label for="secret">Are you an animal?</label>
-        <input type="text" name="secret" id="secret">
-      </div>
-  </div>
-  <% if (post) { %>
-    <% if (errors) { %>
-      <% errors.forEach(function(error) { %>
-        <li class="errors"><%- error.msg %></li>
+<% if (currentUser) { %>
+  <h2><%- `Your current status is ${currentUser.status.toUpperCase()}` %></h2>
+  <form class="form" action="" method="POST" class="sign-up-form">
+  <% if (currentUser.status === 'guest') { %>
+    <h2>Answer the following question correctly to become a Member</h2>
+    <div class="input-container">
+        <div class="input-wrapper">
+          <label for="secret" style="text-align: center">Are you an animal?</label>
+          <input type="text" name="secret" id="secret">
+        </div>
+    </div>
+    <% if (post) { %>
+      <% if (errors) { %>
+        <% errors.forEach(function(error) { %>
+          <li class="errors"><%- error.msg %></li>
+      <% }); %>
+      <% } %>
+    <% } %>
+    <div class="button-wrapper">
+      <button type="submit" class="sign-up-button">Send</button>
+    </div>
+  </form>
+  <% } else if (currentUser.status === 'member') { %>
+  <form action="/user/:username/status/member" method="POST" class="admin-form">
+    <h2>Enter the secret password to become an Admin</h2>
+    <div class="input-container">
+        <div class="input-wrapper">
+          <input type="password" name="admin-password" id="admin-password">
+        </div>
+    </div>
+    <% if (post) { %>
+      <% if (errors) { %>
+        <% errors.forEach(function(error) { %>
+          <li class="errors"><%- error.msg %></li>
       <% }); %>
     <% } %>
-  <% } %>
-  <div class="button-wrapper">
-    <button type="submit" class="sign-up-button">Sign Up</button>
+    <div class="button-wrapper">
+    <button type="submit" class="sign-up-button">Send</button>
   </div>
-</form>
+  </form>
+  <%}%>
+  <% } else if (currentUser.status === 'admin') { %>
+    <%  %>
+  <%} else { %>
+    <h2>404</h2>
+  <%}%>
+<%}%>
