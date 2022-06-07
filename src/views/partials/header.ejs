@@ -1,13 +1,23 @@
 <header>
   <a href="/">
     <div class="logo-container">
-      <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_eeejiiox.json" speed="2" style="width: 6rem; height: 10rem;"  loop  autoplay></lottie-player>
+      <lottie-player class="lottie-logo" src="https://assets2.lottiefiles.com/packages/lf20_eeejiiox.json" speed="2" style="width: 6rem; height: 10rem;"  loop  autoplay></lottie-player>
       Animals</br>Only
     </div>
   </a>
   <h1 class="no-humans">Humans</h1>
   <nav>
-    <a href="/log-in" class="log-in-link">Log In</a>
-    <a href="/sign-up" class="sign-up-link">Sign Up</a>
+    <% if (currentUser && currentUser.status === "guest") { %>
+      <a href=<%=`/user/${currentUser.username}/new-message`%> class="new-message-link">New Message</a>
+      <a href=<%=`/user/${currentUser.username}/status/guest`%> class="status-link">Status</a>
+      <%- include( "./logout.ejs" ) %>
+    <% } else if (currentUser && (currentUser.status === "member" || currentUser.status === "admin")) { %>
+      <a href=<%=`/user/${currentUser.username}/new-message`%> class="new-message-link">New Message</a>
+      <a href=<%=`/user/${currentUser.username}/status/member`%> class="status-link">Status</a>
+      <%- include( "./logout.ejs" ) %>
+    <% } else { %>
+      <a href="/log-in" class="log-in-link">Log In</a>
+      <a href="/sign-up" class="sign-up-link">Sign Up</a>
+    <%}%>
   </nav>
 </header>

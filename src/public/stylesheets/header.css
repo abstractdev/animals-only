@@ -56,9 +56,13 @@ nav {
   border-radius: 50%;
   gap: 0.5rem;
   padding-right: 0.1rem;
+  padding-top: 0.1rem;
 }
 .log-in-link,
-.sign-up-link {
+.sign-up-link,
+.new-message-link,
+.status-link,
+.log-out-button {
   font-size: 1rem;
   text-align: center;
   padding: 1rem;
@@ -66,6 +70,7 @@ nav {
   text-decoration: none;
   color: #fff;
   border-radius: 10px;
+  font-family: "poppinsB", sans-serif;
 }
 
 @media screen and (min-width: 480px) {
