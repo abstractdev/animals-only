@@ -18,14 +18,18 @@ router.get("/user/:username", function (req, res) {
   res.render("user");
 });
 /* GET status. */
-router.get("/user/:username/status", statusController.statusCreateGet);
+router.get("/user/:username/status/guest", statusController.statusCreateGet);
+router.get("/user/:username/status/member", statusController.statusCreateGet);
 /* POST status. */
-router.post("/user/:username/status", statusController.statusCreatePost);
+router.post("/user/:username/status/guest", statusController.statusGuestPost);
+router.post("/user/:username/status/member", statusController.statusMemberPost);
 
 //GET log-in
 router.get("/log-in", userController.userLoginGet);
 //POST log-in
 router.post("/log-in", userController.userLoginPost);
+//POST log-out
+router.post("/log-out", userController.userLogoutPost);
 //GET new-message
 router.get("/user/:username/new-message", messageController.messageCreateGet);
 //POST new-message
