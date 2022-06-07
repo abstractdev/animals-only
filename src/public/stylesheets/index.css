@@ -13,8 +13,9 @@
   background: var(--brown);
   border-radius: 40px;
   padding: 24px;
-  text-align: center;
+  /* text-align: center; */
   color: #fff;
+  word-wrap: break-word;
 }
 
 .bubble-bottom-left:before {
@@ -29,6 +30,18 @@
   left: 32px;
   bottom: -24px;
 }
+.avatar-text-container {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+.delete-message-link {
+  text-decoration: none;
+  background-color: #fff;
+  color: red;
+  padding: .5rem;
+  border-radius: 5px;
+}
 .lottie-message-avatar {
   width: 3rem;
   height: 6rem;
@@ -42,6 +55,9 @@
 @media screen and (min-width: 480px) {
   .bubble {
     width: 400px;
+  }
+  .avatar-text {
+    display: inline;
   }
 }
 @media screen and (min-width: 800px) {
