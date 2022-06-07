@@ -13,6 +13,13 @@
           </div>
         </div>
     </div>
+    <% if (post) { %>
+      <% if (errors) { %>
+        <% errors.forEach(function(error) { %>
+          <li class="errors"><%- error.msg %></li>
+        <% }); %>
+      <% } %>
+    <% } %>
     <div class="button-wrapper">
       <button type="submit" class="new-message-button">Send</button>
     </div>

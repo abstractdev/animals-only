@@ -2,7 +2,7 @@ import { body, validationResult } from "express-validator";
 import { Request, Response, NextFunction } from "express";
 const Message = require("../models/message");
 
-//message GET
+//message create GET
 exports.messageCreateGet = function (
   req: Request,
   res: Response,
@@ -11,19 +11,17 @@ exports.messageCreateGet = function (
   res.render("new-message", { post: false });
 };
 
-//message POST
+//message create POST
 exports.messageCreatePost = [
   // Validate and sanitize fields.
   body("title")
     .trim()
-    .escape()
     .isLength({ min: 1 })
     .withMessage("Title cannot be empty")
     .isLength({ max: 50 })
     .withMessage("Title cannot exceed 50 characters"),
   body("message")
     .trim()
-    .escape()
     .isLength({ min: 1 })
     .withMessage("Message cannot be empty")
     .isLength({ max: 256 })
@@ -34,7 +32,7 @@ exports.messageCreatePost = [
     // Extract the validation errors from a request.
     const errors = validationResult(req);
 
-    // Create a message object with escaped and trimmed data.
+    // Create a message object with trimmed data.
     const message = new Message({
       title: req.body.title,
       message: req.body.message,
@@ -59,3 +57,21 @@ exports.messageCreatePost = [
     }
   },
 ];
+
+//message delete GET
+exports.messageDeleteGet = function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  res.render("delete-message", { post: false });
+};
+
+//message delete POST
+exports.messageDeletePost = function (req: Request, res: Response) {
+  const deleteMsg = (async () => {
+    await Message.deleteOne({ _id: req.params.id });
+    //successful - redirect home.
+    res.redirect("/");
+  })();
+};
