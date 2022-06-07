@@ -28,10 +28,6 @@ export const animals = [
     avatar: "https://assets10.lottiefiles.com/private_files/lf30_bin73hsy.json",
   },
   {
-    name: "crocodile",
-    avatar: "https://assets8.lottiefiles.com/packages/lf20_f54ylzjs.json",
-  },
-  {
     name: "lion",
     avatar: "https://assets2.lottiefiles.com/packages/lf20_vmollwvl.json",
   },
@@ -44,15 +40,23 @@ export const animals = [
     avatar: "https://assets3.lottiefiles.com/packages/lf20_lc46h4dr.json",
   },
   {
-    name: "cat",
-    avatar: "https://assets10.lottiefiles.com/packages/lf20_4rvjxfox.json",
-  },
-  {
     name: "mouse",
     avatar: "https://assets1.lottiefiles.com/packages/lf20_9tnkyafk.json",
   },
   {
     name: "toucan",
     avatar: "https://assets2.lottiefiles.com/private_files/lf30_kcohh4m7.json",
+  },
+  {
+    name: "turtle",
+    avatar: "https://assets9.lottiefiles.com/packages/lf20_gn57ndas.json",
+  },
+  {
+    name: "wolf",
+    avatar: "https://assets6.lottiefiles.com/private_files/lf30_mzcaubti.json",
+  },
+  {
+    name: "cat",
+    avatar: "https://assets5.lottiefiles.com/packages/lf20_ALN0qC.json",
   },
 ];
