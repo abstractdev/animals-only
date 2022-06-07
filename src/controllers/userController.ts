@@ -78,7 +78,6 @@ exports.userCreatePost = [
         avatar: avatar[0],
       });
       if (!errors.isEmpty()) {
-        console.log(errors);
         res.render("sign-up", {
           user: user,
           animals: animals,
@@ -104,7 +103,12 @@ exports.userCreatePost = [
             return next(err);
           }
           //successful - redirect to new user record.
-          res.redirect(user.url);
+          req.logIn(user, (err) => {
+            if (err) {
+              return next(err);
+            }
+            return res.redirect("/");
+          });
         });
       }
     });
@@ -126,9 +130,22 @@ exports.userLoginPost = function (
   res: Response,
   next: NextFunction
 ) {
-  console.log("Username is: " + req.body.username);
   passport.authenticate("local", {
-    successRedirect: "/user/" + req.body.username,
+    successRedirect: "/",
     failureRedirect: "log-in",
   })(req, res, next);
+};
+
+//User log-out POST
+exports.userLogoutPost = function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
 };
