@@ -34,5 +34,9 @@ router.post("/log-out", userController.userLogoutPost);
 router.get("/user/:username/new-message", messageController.messageCreateGet);
 //POST new-message
 router.post("/user/:username/new-message", messageController.messageCreatePost);
+//GET delete-message
+router.get("/message/delete/:id", messageController.messageDeleteGet);
+//POST delete-message
+router.post("/message/delete/:id", messageController.messageDeletePost);
 
 export default router;
