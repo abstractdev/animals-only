@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Message = require("../models/message.ts");
-const User = require("../models/user.ts");
+const Message = require("../models/message");
+const User = require("../models/user");
 // home GET
 exports.homeGet = function (req, res, next) {
     const getUserData = (() => __awaiter(this, void 0, void 0, function* () {
