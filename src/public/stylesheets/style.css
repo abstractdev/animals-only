@@ -25,9 +25,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url("/images/valley.png");
-  background-position: center;
-  background-repeat: none;
+  background: url("/images/valley.png") no-repeat center;
+  background-size: cover;
   background-attachment: fixed;
   height: 100vh;
   display: flex;
