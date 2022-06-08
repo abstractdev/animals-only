@@ -1,0 +1,34 @@
+<div class="home-container">
+  <div class="message-container">
+    <% allMessages.forEach(e => { %>
+      <div class="bubble bubble-bottom-left">
+        <h3><%= e.title %></h3>
+        <p><%= e.message %></p>
+        <% if (currentUser && currentUser.status === 'admin') { %>
+          <a class="delete-message-link" href="/message/delete/<%= e._id %>">Delete</a>
+        <% } %>
+      </div>
+      <% messageUsers.forEach(i => { %>
+        <% if (i.username === e.user) { %>
+          <div class="avatar-container">
+            <lottie-player
+            class="lottie-message-avatar"
+            src="<%= i.avatar %>"
+            speed="1"
+            loop
+            autoplay>
+            </lottie-player>
+          <% if (currentUser && (currentUser.status === "member" || currentUser.status === "admin")) { %>
+            <%= i.username %></br>
+            <%= e.createdAt.toLocaleDateString() %>
+            <% } else if (currentUser && (currentUser.status === "guest")) { %>
+              Anonymous</br>Upgrade status to see username
+            <% } else { %>
+              Anonymous</br>Sign up to see username
+            <% } %>
+          </div>
+          <% } %>
+      <% }) %>
+    <% }) %>
+  </div>
+</div>

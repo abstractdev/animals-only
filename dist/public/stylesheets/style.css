@@ -1,0 +1,72 @@
+@font-face {
+  font-family: tribeca;
+  src: url("/fonts/tribeca.ttf");
+}
+@font-face {
+  font-family: jungle;
+  src: url("/fonts/jungle.ttf");
+}
+@font-face {
+  font-family: poppins;
+  src: url("/fonts/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: poppinsB;
+  src: url("/fonts/Poppins-Black.ttf");
+}
+:root {
+  --green: #63a07d;
+  --brown: #891101;
+  font-family: "poppins", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("/images/valley.png");
+  background-position: center;
+  background-repeat: none;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+/* HIDE RADIO */
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+/* IMAGE STYLES */
+[type="radio"] + lottie-player {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type="radio"]:checked + lottie-player {
+  border: 3px solid var(--brown);
+}
+
+.errors {
+  font-weight: bolder;
+  color: red;
+  list-style: none;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 1rem 0;
+  background-color: var(--brown);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+}

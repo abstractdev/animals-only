@@ -1,0 +1,54 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+h2 {
+  text-align: center;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0.25rem 0;
+}
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--brown);
+}
+.animal-container {
+  text-align: center;
+  display: flex;
+  height: 100%;
+  overflow-x: scroll;
+  padding-bottom: 0.25rem;
+  max-width: 50%;
+}
+.button-wrapper {
+  display: grid;
+  place-items: center;
+  width: 20%;
+}
+.lottie-radio {
+  width: 3rem;
+  height: 5rem;
+}
+
+@media screen and (min-width: 480px) {
+  .input-container {
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .button-wrapper {
+    max-width: 10%;
+  }
+}

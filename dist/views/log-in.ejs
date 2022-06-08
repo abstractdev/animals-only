@@ -1,0 +1,23 @@
+<% if (currentUser) {%>
+  <h1>WELCOME BACK <%= currentUser.username %></h1>
+  <a href="/log-out">LOG OUT</a>
+<% } else { %>
+  <form class="form" action="" method="POST" class="log-in-form">
+  <h2>LOG IN YOU FILTHY ANIMAL</h2>
+  <div class="input-container">
+    <div class="name-container">
+      <div class="input-wrapper">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Username">
+      </div>
+      <div class="input-wrapper">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password">
+      </div>
+    </div>
+  </div>
+  <div class="button-wrapper">
+    <button type="submit" class="log-in-button">Log In</button>
+  </div>
+</form>
+<%}%>

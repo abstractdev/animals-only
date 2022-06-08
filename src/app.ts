@@ -66,5 +66,4 @@ app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 
-app.listen(process.env.PORT || '80', () => {
-});
+app.listen(process.env.PORT || 3000);

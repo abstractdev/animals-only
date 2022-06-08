@@ -1,0 +1,67 @@
+.home-container {
+  display: grid;
+  place-items: center;
+  padding-top: 1rem;
+  width: 100%;
+}
+.bubble {
+  position: relative;
+  font-family: sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  width: 300px;
+  background: var(--brown);
+  border-radius: 40px;
+  padding: 24px;
+  /* text-align: center; */
+  color: #fff;
+  word-wrap: break-word;
+}
+
+.bubble-bottom-left:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 24px solid var(--brown);
+  border-right: 12px solid transparent;
+  border-top: 12px solid var(--brown);
+  border-bottom: 20px solid transparent;
+  left: 32px;
+  bottom: -24px;
+}
+.avatar-text-container {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+.delete-message-link {
+  text-decoration: none;
+  background-color: #fff;
+  color: red;
+  padding: .5rem;
+  border-radius: 5px;
+}
+.lottie-message-avatar {
+  width: 3rem;
+  height: 6rem;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 480px) {
+  .bubble {
+    width: 400px;
+  }
+  .avatar-text {
+    display: inline;
+  }
+}
+@media screen and (min-width: 800px) {
+  .bubble {
+    width: 720px;
+  }
+}
