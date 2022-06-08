@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-const Message = require("../models/message.ts");
-const User = require("../models/user.ts");
+const Message = require("../models/message");
+const User = require("../models/user");
 
 // home GET
 exports.homeGet = function (req: Request, res: Response, next: NextFunction) {
