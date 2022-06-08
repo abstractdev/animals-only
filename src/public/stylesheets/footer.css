@@ -6,6 +6,9 @@
   padding: 1rem 0;
 }
 .github {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  color: inherit;
 }

@@ -5,9 +5,7 @@ header {
   justify-content: space-between;
   cursor: default;
 }
-a {
-  text-decoration: none;
-}
+
 .logo-container {
   display: flex;
   place-items: center;

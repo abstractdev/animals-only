@@ -36,7 +36,6 @@
   word-wrap: break-word;
 }
 .delete-message-link {
-  text-decoration: none;
   background-color: #fff;
   color: red;
   padding: .5rem;

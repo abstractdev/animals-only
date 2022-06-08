@@ -30,8 +30,12 @@ body {
   background-repeat: none;
   background-attachment: fixed;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-
+a {
+  text-decoration: none;
+}
 /* HIDE RADIO */
 [type="radio"] {
   position: absolute;
