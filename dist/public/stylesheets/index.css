@@ -3,6 +3,7 @@
   place-items: center;
   padding-top: 1rem;
   width: 100%;
+  color: var(--brown);
 }
 .bubble {
   position: relative;
