@@ -1,6 +1,5 @@
-# Animals Only
-[![Animals Only](/animals1.png)](https://animals-only.herokuapp.com/)
-============
+# [Animals Only](https://animals-only.herokuapp.com/)
+https://user-images.githubusercontent.com/97710625/183554444-99546751-0896-414b-8074-450cf591ad2a.mp4
 
 [Live Demo](https://animals-only.herokuapp.com/)</br>
 An animal roleplaying messageboard with user authentication and permissions 
